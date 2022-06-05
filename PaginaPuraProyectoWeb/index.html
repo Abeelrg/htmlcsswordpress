@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, intial-scale=1.0">
+  <title>PROYECTO PÁGINA WEB FINAL</title>
+
+  <link rel="icon" href="Logocomer.png">
+
+  <style>
+    .navbar-nav>li.current-menu-item>a {
+      color: #008cff;
+      font-weight: bold;
+    }
+
+    body.has-header-image .site-description {
+      color: #008cff;
+      font-weight: bold;
+    }
+
+    /* ESTILO CUANDO PASO EL RATON POR ENCIMA SE PONE EL TEXTO DE COLOR AZUL */
+
+    .navbar-nav>li>a:hover {
+      color: #008cff;
+    }
+
+    /* ELIMINA DITAR DE LA PORTADA */
+
+    .site-branding-text .edit-link a {
+      visibility: hidden;
+    }
+
+    body.has-header-image .site-title a {
+      text-align: center;
+      font-family: impact;
+      text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
+      -webkit-text-fill-color: rgb(255, 255, 255);
+      -webkit-text-stroke: 1px rgb(0, 0, 0);
+      font-size: 1em;
+    }
+
+    /* ESTILO CUANDO PASO EL RATON POR ENCIMA SE PONE EL TEXTO DE COLOR AZUL */
+
+    .navbar-nav>li>a:hover {
+      color: #008cff;
+    }
+
+    /* ELIMINA DITAR DE LA PORTADA */
+
+    .site-branding-text .edit-link a {
+      visibility: hidden;
+    }
+
+    /* OCULTO COPYRIGHT DEL TEMA */
+
+    .site-info a {
+      visibility: hidden;
+    }
+
+    .site-info .copyright span:nth-child(2) {
+      visibility: hidden;
+    }
+
+    #content.site-content {
+      background-color: #000000;
+    }
+
+    .container {
+      background-color: #000000;
+    }
+
+    .entry-content p {
+      color: #ffffff;
+      font-size: 16px;
+      font-family: Arial;
+    }
+
+    .entry-header .entry-title {
+      visibility: hidden;
+    }
+
+    .entry-content a {
+      color: #000000;
+    }
+
+    body:not(.inspiro-front-page) .entry-header {
+      visibility: hidden;
+    }
+
+    .single .entry-footer {
+      visibility: hidden;
+    }
+
+    body:not(.inspiro-front-page) #comments {
+      visibility: hidden;
+    }
+
+    .logged-in-as {
+      visibility: hidden;
+    }
+
+    #logoMarfil {
+      width: 82px;
+      float: left;
+      height: 76px;
+    }
+
+    .page-id-234 .entry-content h2 {
+      color: black;
+    }
+
+    .page-id-10 .entry-content h2 {
+      color: black;
+    }
+
+    .page-id-10 {
+      background-color: black;
+    }
+
+    .entry-content h3 {
+      color: #ffffff;
+    }
+
+    .page-id-363 .entry-content h3 {
+      color: blue;
+    }
+
+    .inspiro--with-page-nav .navbar-toggle {
+      visibility: hidden;
+    }
+
+    .postid-257 .entry-content a:hover {
+      color: #ffffff;
+      background-color: #800040;
+    }
+
+    .postid-257 .entry-content h2 {
+      color: #800040;
+    }
+
+    .blog .page-title {
+      color: #ffffff;
+      position: fixed;
+      visibility: hidden;
+    }
+
+    .entry-summary .more-link:hover {
+      color: #4800ff;
+    }
+
+    .entry-summary .more-link {
+      color: #0077ff;
+    }
+
+    p {
+      color: #ffffff;
+    }
+
+
+
+
+
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial';
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 3.5em;
+    }
+
+    h2 {
+      font-size: 2.7em;
+    }
+
+    h3 {
+      font-size: 2em;
+    }
+
+    p {
+      font-size: 1.25em;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      font-size: 1.25em
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button {
+      font-size: 1em;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: 1px solid rgba;
+      box-shadow: 2px 2px 10px rgb(58, 58, 58);
+      background-color: rgb(109, 148, 255);
+      color: rgb(0, 0, 0);
+    }
+
+    button:hover {
+      background-color: rgb(75, 78, 255);
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    .color-acento {
+      color: rgb(75, 78, 255);
+    }
+
+    header {
+      background-color: rgb(0, 0, 0);
+    }
+
+    header .logo {
+      margin: 0px;
+      padding: 25px 30px;
+      font-weight: bold;
+      color: rgb(109, 148, 255);
+      font-size: 1.6em;
+    }
+
+    header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header nav {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      padding-bottom: 25px;
+    }
+
+    header a {
+      padding: 5px 12px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    header a:hover {
+      color: rgb(75, 78, 255);
+    }
+
+    #hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+      color: white;
+      border-style: outset;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+
+    #hero h1 {
+      text-align: center;
+      font-family: impact;
+      font-size: 25px;
+      text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
+      -webkit-text-fill-color: rgb(0, 0, 0);
+      -webkit-text-stroke: 1px rgb(255, 255, 255);
+    }
+
+    #hero button {
+      font-size: 1.75em;
+    }
+
+    #mundo-restaurante .container {
+      text-align: center;
+      padding: 50px 12px;
+    }
+
+    #restaurantes-recomendados {
+
+      border: 2px solid white;
+      color: rgb(0, 0, 0);
+      text-align: center;
+    }
+
+
+    #restaurantes-recomendados .container {
+      background-image: url("https://mundorestaurante.000webhostapp.com/wp-content/uploads/2022/05/hotel-con-encanto-en-granada-1.jpg");
+      padding: 10px 12px;
+    }
+
+    #restaurantes-recomendados h3 {
+      text-align: center;
+      font-family: impact;
+      font-size: 10px;
+      text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
+      -webkit-text-fill-color: rgb(0, 0, 0);
+      -webkit-text-stroke: 1px rgb(255, 255, 255);
+      font-size: 2em;
+    }
+
+    #restaurantes-recomendados p {
+      display: none;
+    }
+
+    #restaurantes-recomendados .carta {
+      background-position: center center;
+      background-size: cover;
+      margin: 30px;
+      border-radius: 15px;
+    }
+
+    .carta:first-child {
+      background-image: url("https://mundorestaurante.000webhostapp.com/wp-content/uploads/2022/05/marfiles.jpg");
+
+    }
+
+    .carta:nth-child(2) {
+      background-image: url("https://mundorestaurante.000webhostapp.com/wp-content/uploads/2022/05/pavone-1.jpg");
+    }
+
+    .carta:nth-child(3) {
+      background-image: url("https://mundorestaurante.000webhostapp.com/wp-content/uploads/2022/05/rixtors.jpg");
+    }
+
+    .carta p {
+      background-color: #ff0000;
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+    }
+
+    #caracteristicas .container {
+      text-align: center;
+      padding: 250px 12px;
+    }
+
+    #caracteristicas li {
+      color: white;
+      margin: 16px 0px;
+      font-weight: bold;
+    }
+
+    #descubrir-restaurantes {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-color: black;
+      border: 2px solid white;
+      height: 80vh;
+    }
+
+    #descubrir-restaurantes h2 {
+      color: blue;
+    }
+
+    footer {
+      background-color: white;
+    }
+
+    footer p {
+      margin: 0;
+      padding: 12 px;
+      color: rgb(100, 100, 100);
+    }
+
+    footer .container {
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+
+    @media (min-width: 850px) {
+      header {
+        position: fixed;
+        width: 100%;
+      }
+
+
+      header .container {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      header nav {
+        flex-direction: row;
+        padding-bottom: 0;
+        padding-right: 20px;
+      }
+
+      #hero h1 {
+        font-size: 5em;
+      }
+
+      #mundo-restaurante {
+        background-color: black;
+      }
+
+      #mundo-restaurante .container {
+        display: flex;
+        justify-content: space-evenly;
+
+      }
+
+      #restaurantes-recomendados .programas {
+        display: flex;
+        justify-content: center;
+      }
+
+      #restaurantes-recomendados p {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      #restaurantes-recomendados h2 {
+        text-align: center;
+        font-family: impact;
+        font-size: 10px;
+        text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
+        -webkit-text-fill-color: rgb(255, 255, 255);
+        -webkit-text-stroke: 1px rgb(0, 0, 0);
+        font-size: 3.2em;
+      }
+
+      #restaurantes-recomendados h3 {
+        margin-top: 0;
+      }
+
+      #restaurantes-recomendados .carta {
+        padding: 50px;
+        background-size: 100% 150px;
+        background-repeat: no-repeat;
+        background-position-y: 0;
+        background-color: rgb(0, 0, 0);
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .carta:first-child {
+        background-image: url("https://mundorestaurante.000webhostapp.com/wp-content/uploads/2022/05/marfiles.jpg");
+
+      }
+
+      .carta:nth-child(2) {
+        background-image: url("https://mundorestaurante.000webhostapp.com/wp-content/uploads/2022/05/pavone-1.jpg");
+      }
+
+      .carta:nth-child(3) {
+        background-image: url("https://mundorestaurante.000webhostapp.com/wp-content/uploads/2022/05/rixtors.jpg");
+
+      }
+
+      .carta p {
+        background-color: rgb(61, 40, 255);
+        color: black;
+        font-weight: bold;
+      }
+
+      #caracteristicas {
+        background-color: #000;
+        background-repeat: no-repeat;
+        background-size: 500px 400px;
+        background-position: calc(100vw - 500px) 120px;
+
+      }
+
+      #caracteristicas .container {
+        text-align: initial;
+      }
+
+      #caracteristicas ul {
+        margin-left: 100px;
+      }
+
+      #list::first-line {
+        font-weight: bold;
+        background-color: #008cff;
+      }
+
+      #descubrir-restaurantes h2 {
+        font-size: 1.6em;
+      }
+
+      #descubrir-restaurantes buton {
+        font-size: 2em;
+      }
+
+      footer .container {
+        justify-content: flex-end;
+      }
+    }
+
+
+    /*
+ CSS NECESARIO PARA CREAR MODALES PARA LA RESERVA EN LOS  RESTAURANTES RECOMENDADOS
+*/
+
+
+    h2#modalh2 {
+      color: white;
+      background-image: url("https://mundorestaurante.000webhostapp.com/wp-content/uploads/2022/05/los-marfiles-restaurante2.jpg");
+    }
+
+    h2#modal2h2 {
+      color: white;
+      background-image: url("https://mundorestaurante.000webhostapp.com/wp-content/uploads/2022/05/pizza.jpg");
+    }
+
+    h2#modal3h2 {
+      color: white;
+      background-image: url("https://mundorestaurante.000webhostapp.com/wp-content/uploads/2022/05/burguer2.jpeg");
+    }
+
+    button#btReserva {
+      background-color: rgb(81, 136, 255);
+    }
+
+    .modalDialog {
+
+      position: fixed;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 99999;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .modalDialog:target {
+      opacity: 1;
+      position: fixed;
+      pointer-events: auto;
+    }
+
+    .modalDialog>div {
+
+      width: 800px;
+      height: 500px;
+      position: relative;
+      margin: 10% auto;
+      padding: 5px 20px 13px 20px;
+      border-radius: 10px;
+      border-style: outset;
+      background-color: lightgray;
+
+    }
+
+    .close {
+      background: #ff1100;
+      opacity: 1;
+      color: #ffffff;
+      line-height: 25px;
+      position: absolute;
+      right: -12px;
+      text-align: center;
+      top: -10px;
+      width: 24px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 12px;
+
+    }
+
+    .close:hover {
+      background: rgb(0, 119, 255);
+    }
+
+
+    /*
+ CSS NECESARIO PARA ANIMACION YATE ZOOM ACERCADNOSE POR EL MAR.
+*/
+    #malaga {
+      border: 5px solid white;
+    }
+
+    #portaFotoFondo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    #portaFotoFrente {
+      position: absolute;
+      top: -1915px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 20%;
+      height: 20%;
+      margin: auto;
+    }
+
+
+    #laFotoFrente {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+
+    }
+
+    #laFotoFrente {
+      transition: all 3s ease;
+      transform: scale(0.5) translate(20px, 20px);
+      ;
+      opacity: 0.8;
+    }
+
+    #contenedor2:hover #laFotoFrente {
+      transform: scale(1.3);
+      opacity: 1;
+    }
+
+    .container-btn-mode {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      cursor: pointer;
+      z-index: 2;
+      font-size: 0;
+    }
+
+    .active {
+      background-color: black;
+      color: #0044ff !important;
+    }
+
+
+    #caja {
+      border-style: solid;
+      border-color: blue;
+      border-width: 6px;
+      background-image: linear-gradient(to bottom left, black, blue, lightblue);
+      position: absolute;
+      top: 2440px;
+      width: 500px;
+      height: 500px;
+      margin: auto;
+      white-space: normal;
+      overflow: hidden;
+      text-overflow: clip;
+    }
+
+    #parrafo {
+      text-transform: uppercase;
+      text-shadow: 5px 5px 10px blueviolet;
+      color: white;
+      background-color: black;
+      border-style: solid;
+      border-color: blue;
+      border-width: 3px;
+      vertical-align: middle;
+      text-align: center;
+      font-size: calc(6px + 1vw + 1vh);
+      transition: all 1.5s ease;
+      -webkit-transition: all 1.5s ease;
+    }
+
+
+    #parrafo:hover {
+      color: whitesmoke;
+      text-shadow: 1px 1px 3px black;
+      background-color: gray;
+    }
+
+    /* DEFINO LAS ANIMACIONES */
+    #movida {
+      animation-duration: 6s;
+      animation-name: box-mov;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+    }
+
+    @keyframes box-mov {
+      from {
+        margin-left: 80%;
+        width: 300%;
+        color: rgb(5, 5, 5);
+      }
+
+      50% {
+        font-size: 200%;
+      }
+
+      to {
+        margin-left: 0%;
+        width: 100%;
+        color: rgb(208, 255, 0);
+      }
+    }
+
+
+    .flip-card {
+      margin-left: 40px;
+      background-color: transparent;
+      width: 800px;
+      height: 310px;
+      border: 1px solid white;
+      perspective: 1000px;
+      display: flex;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      border: 3px solid;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    .flip-card-front {
+      background-color: #bbb;
+      color: black;
+    }
+
+    .flip-card-back,
+    .flip-card-back2 {
+      background-color: grey;
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-back h1 {
+      font-size: 25px;
+      background-color: #800040;
+      color: black;
+    }
+
+    .flip-card-back p {
+      background-color: #800040;
+
+    }
+
+    #caja2 {
+      background-image: linear-gradient(to bottom left, blue, cyan, black);
+      border: 5px solid white;
+      position: absolute;
+      top: 1300px;
+      left: 0;
+      right: 0;
+      width: 23%;
+      height: 19%;
+      margin: auto;
+      white-space: normal;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    #parrafo2 {
+      display: table-cell;
+      color: white;
+      vertical-align: middle;
+      text-align: center;
+      font-size: calc(6px + 1vw + 1vh);
+      transition: all 1.5s ease;
+      -webkit-transition: all 1.5s ease;
+    }
+
+    #parrafo2::before {
+      transition: all 1.5s ease;
+      -webkit-transition: all 1.5s ease;
+    }
+
+    #parrafo2:hover {
+      color: black;
+      text-shadow: 1px 1px 3px black;
+      background-color: blue;
+    }
+
+
+    @media (min-width: 1200px) {
+      #caracteristicas {
+        background-position-x: calc(100vw - 800px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section id="hero">
+    <h1>Descubre sabores <br> con Mundo Restaurante</h1>
+</section>
+<section id="mundo-restaurante">
+    <div class="container">
+        <div id="contenedor2">
+            <div id="malaga"><img src="https://mundorestaurante.000webhostapp.com/wp-content/uploads/2022/05/malaga-skyline1.jpg" width="800" height="500"></div>
+            <div id="portaFotoFrente">
+            <img id="laFotoFrente" alt="Foto Yate" title="Yate Malaga" src="https://mundorestaurante.000webhostapp.com/wp-content/uploads/2022/05/yate.png">
+            </div>
+        </div>
+    </div>
+</section>
+<section id="restaurantes-recomendados">
+<div class="container">
+    <h2>Restaurantes Probados y Recomendados</h2>
+    <div class="programas">
+    <div class="carta">
+        <h3>Los Marfiles</h3>
+        <p>Restaurante 🥘</p>
+        <button class="boton">
+            <a href="#openModal">RESERVAR</a>
+            </button>
+        <div id="openModal" class="modalDialog">
+            <div id="x">
+                <a href="#close" title="Close" class="close">X</a>
+                    <h2 id="modalh2">Los Marfiles</h2>   
+                    <button id="btReserva"><a href="tel:+34952313283">RESERVA YA</a></button>           
+            </div>
+        </div>
+    </div>
+    <div class="carta">
+        <h3>Pizzeria Pavone</h3>
+        <p>Italiano Pizzeria 🍕</p>
+        <button class="boton">
+            <a href="#openModal2">RESERVAR</a>
+            </button>
+        <div id="openModal2" class="modalDialog">
+            <div id="x">
+                <a href="#close" title="Close" class="close">X</a>
+                    <h2 id="modal2h2">Italiano Pavone</h2>   
+                    <button id="btReserva"><a href="tel:+34952313283">RESERVA YA</a></button>           
+            </div>
+        </div>
+    </div>
+    <div class="carta">
+        <h3>Rixtors Burguer</h3>
+        <p>Hamburgueseria Especializada 🍔</p>
+        <button class="boton">
+            <a href="#openModal3">RESERVAR</a>
+            </button>
+        <div id="openModal3" class="modalDialog">
+            <div id="x">
+                <a href="#close" title="Close" class="close">X</a>
+                    <h2 id="modal3h2">Rixtors Burguer</h2>   
+                    <button id="btReserva"><a href="tel:+34952313283">RESERVA YA</a></button>           
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<section id="caracteristicas">
+    <div class="container">
+    <ul id="list">
+        <p>CARACTERÍSTICAS DE NUSTRA PÁGINA WEB MUNDO RESTAURANTE</p>
+        <li>✔️ Restaurantes 100% analizados por especialistas.</li>
+        <li>💬​ Asistencia por correo las 24h.</li>
+        <li>💳 Recomendaciones exclusivas para visitantes VIP</li>
+        <li>💼 Si quieres trabajar con nosotros, contactanos.</li>
+        <button> <a href="mailto:abelriquelmegomez@mail.com">CONTACTA</a></button>
+    </ul>
+    </div>
+</section>
+
+<section id="descubrir-restaurantes">
+ <div id="caja">
+        <p id="parrafo">Mundo Restaurante<br>
+          Bienvenido<br><br></p>
+
+        <div id="movida">
+        </div>
+    <textarea id="mensaje" rows="4" cols="30">Introduce tu nombre...</textarea>
+    <button id="boton2" onclick="actualizar()">ACEPTAR</button>
+    </div>
+</section>
+
+    <script>
+        function actualizar() {
+            document.getElementById("movida").innerHTML = document.getElementById("mensaje").value;
+        }
+    </script>
+
+
+<footer>
+    <div class="container">
+        <p>© Mundo Restaurante</p>
+    </div>
+</footer>
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://mundorestaurante.000webhostapp.com/wp-content/uploads/2022/05/los-marfiles-restaurante2.jpg" alt="Descuento Los Marfiles" style="width:800px;height:300px;">
+    </div>
+    <div class="flip-card-back">
+      <h1>Descuento 10% en tu 1º vez</h1>
+      <p>CÓDIGO:HSIDSDH12</p>
+    </div>
+  </div>
+</div>
+
+<div id="caja2">
+  <p id="parrafo2">Oferta de la semana<br>19.45€
+   <img src="https://mundorestaurante.000webhostapp.com/wp-content/uploads/2022/05/pizza.jpg" alt="" width="500" height="600">
+      </p></div>
+</body>
+
+</html>
